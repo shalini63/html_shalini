@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function getvalues(){
+var checkboxes=document.getElementsByName('department[]');
+var ckval="";
+for(var i=0; i<checkboxes.length; i++){
+  if(checkboxes[i].checked){
+	ckval +="," +checkboxes[i].value;
+}         
+}
+document.getElementById('display').innerHTML="Firstname:" + document.shalini.firstname.value + "last name:" +document.shalini.lastname.value + "password:" +document.shalini.password.value + "age:"+document.shalini.age.value + "gender:"+document.shalini.gender.value + "department" + ckval;
+}
+</script>
+</head>
+<body>
+<form name="shalini" action="#">
+<p id="display"></p>
+first name:<br>
+<input type="text" name="firstname" required>
+<br>
+last name:<br>
+<input type="text" name="lastname">
+<br>
+password:<br>
+<input type="password" name="password">
+<br>
+age:<br>
+<input type="number" name="age">
+<br>
+gender:<br>
+<input type="radio" name="gender" value="male"checked>male<br>
+<input type="radio" name="gender" value="female"checked>female<br>
+<input type="radio" name="gender" value="others"checked>others<br>
+<br>
+department:<br>
+<input type="checkbox" name="department[]" value="cse">cse<br>
+<input type="checkbox" name="department[]" value="it" >it<br>
+
+<br>
+<input type="checkbox" name="department[]" value="c">c<br>
+<input type="checkbox" name="department[]" value="c++">c++<br>
+<input type="checkbox" name="department[]" value="java">java<br>
+<select name="year" size="4"multiple>
+<option value="xxx">1st</option>
+<option value="yyy">2nd</option>
+<option value="zzz">3rd</option>
+</select>
+</br>
+<select name="year" >
+<option value="xxx">1st</option>
+<option value="yyy">2nd</option>
+<option value="zzz">3rd</option>
+</select>
+<input type="submit" name="submit" value="submit" onclick="getvalues();return false;">
+</form>

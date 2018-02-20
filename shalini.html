@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script>
+angular.module('myapp',[]).controller('myctl',function($scope){
+$scope.firstname='';
+$scope.lastname='';
+$scope.users=[];
+$scope.add=function(){
+ $scope.users.push($scope.firstname + " " + $scope.lastname);
+}
+$scope.remove=function(index){
+//$scope.users.pop($scope.firstname + " " + $scope.lastname);
+//$scope.users.pop();
+$scope.users.splice(index,1);
+}
+});
+</script>
+</head>
+<body 
+<div ng-app="myapp" ng-controller="myctl">
+<form name=:"shalini">
+firstname:<input type="text" ng-model="firstname" required>
+lastname:<input type="text" ng-model="lastname" required>
+<button ng-click="add()">Add</button>
+<button ng-click="remove()">remove</button>
+<table>
+<tr ng-repeat="y in users">
+<td>{{y}}</td>
+<td><button ng-click="remove($index)">remove</button></td>
+</tr>
+</table>
+
+
+</body>
+</html>
+

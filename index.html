@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<script src="angular-route.js"></script>
+<body ng-app="myApp">
+
+<p><a href="#/!">main</a></p>
+
+<a href="#!red">Red</a>
+<a href="#!gr">Green1</a>
+<a href="#!blue">Blue</a>
+
+<div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.html"
+    })
+    .when("/red", {
+        templateUrl : "sh.html"
+    })
+    .when("/gr", {
+        templateUrl : "http://localhost:3000/shalini/pb.html"
+    })
+    .when("/blue", {
+        templateUrl : "ris.html"
+    });
+});
+app.controller('myCtrl', function($scope,$rootScope) {
+   $scope.login=true;
+   $rootScope.welcome=false;
+   $scope.getvalues=function(){
+  
+     if($scope.Username == "shalini" && $scope.Userpassword == "1234"){
+		  $scope.login=false;
+		  $rootScope.welcome=true;
+		  $rootScope.message ="Home of mine";
+	 }
+   }
+});
+app.controller('myCtrl1', function($scope) {
+    
+});
+</script>
+</body>
+
+</html>
